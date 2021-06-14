@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms.Vonage.iOS;
 
 namespace VonageApp.iOS
 {
@@ -22,6 +23,7 @@ namespace VonageApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            PlatformVonage.Init(this);
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
