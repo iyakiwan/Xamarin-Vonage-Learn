@@ -14,6 +14,7 @@ namespace VonageApp
     public partial class MainPage : ContentPage
     {
         private bool _isRendererSet;
+        private bool voice = true, video = true;
 
         public MainPage()
         {
@@ -33,6 +34,37 @@ namespace VonageApp
 
         private void OnSwapCamera(object sender, EventArgs e)
             => CrossVonage.Current.CycleCamera();
+
+        private void OnCamera(object sender, EventArgs e)
+        {
+            video = !video;
+            if (video)
+            {
+                btnMuteCamera.Source = "videocam_on.png";
+                CrossVonage.Current.IsVideoPublishingEnabled = true;
+
+            }
+            else
+            {
+                btnMuteCamera.Source = "videocam_off.png";
+                CrossVonage.Current.IsVideoPublishingEnabled = false;
+            }
+        }
+
+        private void OnVoice(object sender, EventArgs e)
+        {
+            voice = !voice;
+            if (voice)
+            {
+                btnMute.Source = "mic_on.png";
+                CrossVonage.Current.IsAudioPublishingEnabled = true;
+            }
+            else
+            {
+                btnMute.Source = "mic_off.png";
+                CrossVonage.Current.IsAudioPublishingEnabled = false;
+            }
+        }
 
         void OnShareScreen(object sender, EventArgs e)
         {

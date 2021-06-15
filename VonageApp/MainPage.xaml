@@ -5,11 +5,66 @@
              BackgroundColor="White"
              x:Class="VonageApp.MainPage">
 
-    <StackLayout>
-        <vonage:VonagePublisherView HeightRequest="200" />
+    <AbsoluteLayout>
+        <vonage:VonageSubscriberView StreamId="{Binding .}"
+                                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                                     AbsoluteLayout.LayoutFlags="SizeProportional"/>
+
+        <vonage:VonagePublisherView AbsoluteLayout.LayoutBounds="0.95, 0.8, 100,200"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <ImageButton
+                AbsoluteLayout.LayoutBounds="0.5,0.85,80,80"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="red"
+                Clicked="OnEndCall"
+                CornerRadius="40"
+                HeightRequest="80"
+                Padding="10"
+                x:Name="btnEndCall"
+                Source="call_end.png"
+                WidthRequest="80" />
+        
+        <ImageButton
+                AbsoluteLayout.LayoutBounds="0.5,0.98,60,60"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="Blue"
+                Clicked="OnCamera"
+                CornerRadius="30"
+                HeightRequest="60"
+                Padding="10"
+                x:Name="btnMuteCamera"
+                Source="videocam_on.png"
+                WidthRequest="80" />
+
+        <ImageButton
+                AbsoluteLayout.LayoutBounds="0.25,0.98,60,60"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="Blue"
+                Clicked="OnSwapCamera"
+                CornerRadius="30"
+                HeightRequest="60"
+                Padding="10"
+                x:Name="btnSwipeCamera"
+                Source="flip_camera_android.png"
+                WidthRequest="80" />
+
+        <ImageButton
+                AbsoluteLayout.LayoutBounds="0.75,0.98,60,60"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="Blue"
+                Clicked="OnVoice"
+                CornerRadius="30"
+                HeightRequest="60"
+                Padding="10"
+                x:Name="btnMute"
+                Source="mic_on.png"
+                WidthRequest="80" />
+        <!--
         <StackLayout BindableLayout.ItemsSource="{Binding Path=StreamIdCollection, Source={x:Static vonage:CrossVonage.Current}}">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
+        
                     <vonage:VonageSubscriberView HeightRequest="200" StreamId="{Binding .}"/>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
@@ -30,6 +85,7 @@
             <Button Text="Swap Camera" TextColor="Purple" Grid.Row="0" Grid.Column="2" Clicked="OnSwapCamera" />
             <Button Text="Share" TextColor="Gold" Grid.Row="0" Grid.Column="3" Clicked="OnShareScreen" />
         </Grid>
-    </StackLayout>
+        -->
+    </AbsoluteLayout>
 
 </ContentPage>

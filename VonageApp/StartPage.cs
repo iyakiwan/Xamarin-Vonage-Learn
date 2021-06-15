@@ -17,7 +17,7 @@ namespace VonageApp
                     new Button
                     {
                         VerticalOptions = LayoutOptions.CenterAndExpand,
-                        Text = "CLICK TO CHAT",
+                        Text = "CLICK TO VIDEO CALL",
                         Command = new Command(() => {
                             if(!CrossVonage.Current.TryStartSession())
                             {
